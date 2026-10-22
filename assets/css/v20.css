@@ -1,0 +1,104 @@
+/* Rogério Bié · v2.0 · on top of v19.css. Miro round (22/10/2026): poster lettering on the name and the big titles, dark-green header, uppercase chips in one line, selected work as a strip under the numbers, quieter mosaic, modern sans on the headline and the menu, feed scrubbing. */
+:root{--f-poster:"Archivo","Inter Tight","Helvetica Neue",Arial,sans-serif;--f-sans:"Inter Tight","Archivo","Helvetica Neue",Arial,sans-serif}
+
+/* ---------- titles: the V17/V19 serif lettering stays everywhere (Newsreader, italic keyword, grain). The press and research section heads join it. ---------- */
+.np-sec,.rs-h{font-family:var(--f-title);font-weight:500;letter-spacing:-.028em;line-height:1;text-wrap:balance;filter:url(#ink19);text-transform:none;font-stretch:100%}
+.np-sec mark,.rs-h mark{font-style:italic;padding:0 .12em .02em .06em;border-radius:.06em;transform:rotate(-.6deg);display:inline-block;background:var(--lime);color:#131210}
+.np-sec mark.m-y,.rs-h mark.m-y{background:var(--yellow)}
+.np-sec mark.m-r,.rs-h mark.m-r{background:var(--red);color:#fff}
+.np-sec mark.m-b,.rs-h mark.m-b{background:var(--blue);color:#131210}
+.t20{font-family:var(--f-title);font-weight:500;letter-spacing:-.028em;line-height:1}
+
+/* ---------- hero: the name as a newspaper nameplate, the fields as a rule of small caps ---------- */
+.hero{padding-block:38px 0}
+.wordmark{font-family:var(--f-title);font-weight:500;font-size:clamp(60px,11.5vw,184px);letter-spacing:-.035em;line-height:.9;margin:0 0 0 -.02em;padding-bottom:.1em;white-space:nowrap;filter:url(#ink19)}
+.wordmark .wm-a{display:inline-block}
+.wordmark .wm-b{display:inline-block;font-style:italic;margin-left:.04em;padding-right:.08em}
+.wordmark .wm-dot{right:-.06em;bottom:.12em;width:.11em;height:.11em}
+.v19 .field-chips{display:flex;flex-wrap:wrap;gap:0 30px;margin-top:14px;padding:12px 0 14px;border-top:1px solid var(--ink);border-bottom:3px double var(--ink);background:none}
+.v19 .field-chips .fchip{flex:0 0 auto;display:inline-flex;align-items:center;gap:9px;background:none;color:var(--ink);border-radius:0;padding:4px 0;font-family:var(--f-sans);font-weight:600;font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;text-decoration:none;transition:color .2s}
+.v19 .field-chips .fchip::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c)}
+.v19 .field-chips .fchip:hover{transform:none;color:var(--red);filter:none}
+.v19 .field-chips .fchip:hover::before{background:var(--red)}
+@media (max-width:700px){.v19 .field-chips{gap:4px 18px}.v19 .field-chips .fchip{font-size:11.5px}}
+
+/* ---------- header: dark green, name and menus in a different colour ---------- */
+.x-top{background:var(--x-forest);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid rgba(242,247,230,.14);color:#F2F7E6}
+.x-top.scrolled,.x-top.x-always{border-bottom-color:rgba(242,247,230,.22)}
+.x-mark{color:var(--x-lime);font-family:var(--f-title);font-weight:500;font-size:24px;letter-spacing:-.025em;text-transform:none}
+.x-top.x-hide-mark:not(.scrolled) .x-mark{opacity:1;transform:none;pointer-events:auto}
+.x-nav a{color:rgba(242,247,230,.85);font-family:var(--f-sans);font-weight:600;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase}
+.x-nav a:hover,.x-nav a.on,.x-nav a[aria-current="page"]{background:var(--x-lime);color:#131210}
+.x-chip{border-color:rgba(242,247,230,.55);color:#F2F7E6}
+.x-chip:hover{background:#F2F7E6;color:#131210}
+.x-burger{background:var(--x-lime);color:#131210}
+.x-burger:hover{background:#F2F7E6}
+.x-nav{mask-image:linear-gradient(90deg,#000 92%,transparent)}
+/* drawer: the modern sans on the menu */
+.x-main a{font-family:var(--f-poster);font-stretch:85%;font-weight:900;text-transform:uppercase;font-size:clamp(24px,3.4vh,32px);letter-spacing:-.005em;padding:10px 0}
+.x-main a[aria-current="page"] span:last-child{font-style:normal;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:4px}
+
+/* ---------- intro: modern sans headline, quieter mosaic ---------- */
+.intro h2.display{font-family:var(--f-sans);font-weight:800;letter-spacing:-.045em;line-height:.98;filter:none;font-size:clamp(44px,6vw,92px)}
+.intro h2.display mark{font-style:normal;background-size:100% .16em;background-position:0 94%}
+.intro-grid{grid-template-columns:1fr}
+.intro-txt{max-width:720px}
+.intro .tray{display:none}
+.mo-grid{animation:pan20 120s linear infinite alternate;cursor:default}
+@keyframes pan20{from{transform:translate3d(-2.4%,-1.4%,0) scale(1.04)}to{transform:translate3d(2.4%,1.4%,0) scale(1.04)}}
+.mo-grid figure{cursor:default}
+.mo-grid img{filter:grayscale(.35) contrast(1.02) saturate(.8);transition:filter .6s,opacity 1.6s ease,transform .6s}
+.mo-grid figure:hover img{filter:grayscale(0) contrast(1.05) saturate(1.05)}
+.mo-grid figure::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 0 var(--lime);transition:box-shadow .35s;pointer-events:none}
+.mo-grid figure:hover::after{box-shadow:inset 0 0 0 3px var(--lime)}
+.mo-grid img.kb{animation:kb 28s ease-in-out infinite alternate}
+@media (prefers-reduced-motion:reduce){.mo-grid{animation:none}}
+
+/* ---------- selected work: a strip right under the numbers ---------- */
+.tray.tray-h{display:flex;gap:0;padding:0;margin:0;border:0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);background:var(--card);backdrop-filter:none;border-radius:0;overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--ink) var(--paper-2);overscroll-behavior-x:contain}
+.tray.tray-h::-webkit-scrollbar{height:6px}.tray.tray-h::-webkit-scrollbar-thumb{background:var(--ink)}
+.tray.tray-h li{flex:1 0 236px;opacity:1;transform:none;border-bottom:0;border-left:1.5px solid var(--rule);min-width:0}
+.tray.tray-h li:first-child{border-left:0}
+.tray.tray-h a,.tray.tray-h button{grid-template-columns:auto 56px 1fr;gap:10px;padding:14px 16px;height:100%;align-items:center;transition:background .25s,color .25s}
+.tray.tray-h a:hover,.tray.tray-h button:hover{padding-left:16px;background:var(--ink);color:var(--paper)}
+.tray.tray-h a:hover small,.tray.tray-h button:hover small{color:color-mix(in srgb,var(--paper) 70%,transparent)}
+.tray.tray-h .mono{font-size:11px;letter-spacing:.08em}
+.tray.tray-h img{width:56px;height:40px;border-radius:4px}
+.tray.tray-h b{font-size:14.5px;line-height:1.15}
+.tray.tray-h small{font-size:11px}
+.tray-lab{display:flex;align-items:center;gap:10px;font-family:var(--f-sans);font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;padding:10px var(--gut,20px) 0;color:var(--ink-3)}
+.tray-lab::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+/* ---------- feed: scrub the playhead ---------- */
+.vphone .vprog{height:4px;cursor:pointer;overflow:visible;transition:height .2s;touch-action:none}
+.vphone:hover .vprog,.vphone .vprog:focus-visible{height:8px}
+.vphone .vprog i{position:relative;transition:none}
+.vphone .vprog i::after{content:"";position:absolute;right:-6px;top:50%;width:12px;height:12px;border-radius:50%;background:#fff;transform:translateY(-50%) scale(0);transition:transform .2s;box-shadow:0 0 0 3px rgba(0,0,0,.25)}
+.vphone:hover .vprog i::after,.vphone .vprog.drag i::after{transform:translateY(-50%) scale(1)}
+.vtime{position:absolute;left:12px;top:22px;font:600 11px/1 var(--f-sans);letter-spacing:.06em;color:#fff;background:rgba(0,0,0,.45);padding:5px 8px;border-radius:999px;opacity:0;transition:opacity .25s;pointer-events:none;font-variant-numeric:tabular-nums}
+.vphone:hover .vtime,.vphone .vprog.drag~.vtime{opacity:1}
+.vscrub{display:flex;gap:6px;flex-wrap:wrap}
+.vscrub button{font:700 12px/1 var(--f-sans);letter-spacing:.04em;border:1.5px solid rgba(255,255,255,.65);background:rgba(0,0,0,.25);color:#fff;border-radius:999px;padding:8px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background .2s,color .2s}
+.vscrub button:hover{background:#fff;color:#111}
+.vscrub svg{width:14px;height:14px}
+
+/* ---------- about: a second map, the USA ---------- */
+.mapbox.usa{margin-top:16px}
+.mapbox.usa{display:grid;place-items:center;padding:18px 18px 32px}
+.mapbox.usa svg{background:none;max-width:560px;overflow:visible}
+.mapbox .us{fill:var(--paper-2);stroke:var(--ink-3);stroke-width:.6;stroke-linejoin:round}
+.mapbox .us-state{fill:var(--lime);stroke:var(--ink);stroke-width:.6}
+.mapbox .us-pin circle{fill:var(--red);stroke:var(--card);stroke-width:.5}
+.mapbox .us-pin text{font:700 3.2px var(--f-sans);fill:var(--ink);paint-order:stroke;stroke:var(--card);stroke-width:1px;stroke-linejoin:round}
+.mapbox .us-pin.alt text{fill:var(--ink-2)}
+.mapbox .us-pin{cursor:pointer}
+.mapbox .us-pin:hover circle{r:2.2}
+.mapbox .us-route{fill:none;stroke:var(--red);stroke-width:.8;stroke-dasharray:2 2.5;animation:dash20 14s linear infinite}
+@keyframes dash20{to{stroke-dashoffset:-180}}
+.mapbox .us-cap{position:absolute;left:14px;bottom:10px;font:600 10.5px var(--f-sans);letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.mapbox .us-coords{position:absolute;right:14px;bottom:10px;font:600 10.5px var(--f-sans);letter-spacing:.06em;color:var(--ink-3)}
+
+/* ---------- home: the research teaser now points at research.html ---------- */
+.agenda .more{font-family:var(--f-sans)}
+
+@media (max-width:900px){.wordmark{font-size:clamp(48px,13vw,120px)}}

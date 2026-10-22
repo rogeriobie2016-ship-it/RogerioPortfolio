@@ -1,0 +1,53 @@
+/* v1.5 · fixed side rail, same on every page. Look of the old green menu panel (v1.2): forest green, Inter Tight, cream type, lime on hover.
+   Desktop: always open on the left. Below 1100px: top bar + slide-in panel. */
+:root{--rail:300px;--rail-ink:#EEF0E4;--rail-dim:rgba(238,240,228,.6);--rail-paper:#294914;--rail-line:rgba(238,240,228,.18);--rail-lime:#B7DE43}
+aside.rail{left:0;right:auto;width:var(--rail);display:flex;flex-direction:column;z-index:80;overflow-y:auto;overflow-x:hidden;
+  padding:calc(26px + env(safe-area-inset-top,0px)) 30px calc(22px + env(safe-area-inset-bottom,0px));
+  color:var(--rail-ink);font-family:"Inter Tight","Helvetica Neue",Arial,sans-serif;background-color:var(--rail-paper);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+aside.rail a{color:var(--rail-ink);text-decoration:none;opacity:1;transform:none;background:none!important;transition:color .4s}
+aside.rail a:hover,aside.rail a[aria-current="page"]{color:var(--rail-lime)}
+aside.rail .rmark{display:grid;gap:8px;margin-bottom:clamp(20px,4vh,40px)}
+aside.rail .rmark b{font-family:"Inter Tight","Helvetica Neue",Arial,sans-serif;font-weight:800;font-size:1.5rem;line-height:1;letter-spacing:-.03em}
+aside.rail .rmark span{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;line-height:1.5;color:var(--rail-dim)}
+aside.rail .rmark br{display:none}
+aside.rail .mbig{display:grid;gap:2px;margin:0}
+aside.rail .mbig a{display:block;padding:0;font-family:"Inter Tight","Helvetica Neue",Arial,sans-serif;font-weight:600;font-stretch:100%;text-transform:none;
+  font-size:clamp(30px,2.6vw,42px);line-height:1.08;letter-spacing:-.035em;filter:url(#inkl)}
+aside.rail .mbig .rn{display:none}
+aside.rail .mbig a::before{display:none}
+aside.rail .mfields{display:grid;gap:4px;margin-top:clamp(24px,4.5vh,44px)}
+aside.rail .mfields .mono{display:block;font:600 .62rem/1 "Inter Tight",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--rail-dim);margin:0 0 6px}
+aside.rail .mfields a{display:flex;align-items:center;gap:10px;padding:3px 0;font-family:"Inter Tight","Helvetica Neue",Arial,sans-serif;font-weight:500;font-size:1.05rem;letter-spacing:-.01em;text-transform:none}
+aside.rail .mfields a i{width:10px;height:10px;flex:none;border-radius:0;box-shadow:none}
+aside.rail .mfields a span{margin:0;font:inherit;color:inherit}
+aside.rail .mfoot{margin-top:auto;padding-top:22px;display:grid;gap:12px;border-top:1px solid var(--rail-line)}
+aside.rail .rpress,aside.rail .mgame{font-weight:600;font-size:.98rem}
+aside.rail .mgame{color:var(--rail-lime)}
+aside.rail .mgame:hover{color:var(--rail-ink)}
+aside.rail .langsw{display:inline-flex;border:1px solid var(--rail-dim);border-radius:999px;overflow:hidden;width:max-content}
+aside.rail .langsw button{font:600 .68rem/1 "Inter Tight",Arial,sans-serif;letter-spacing:.08em;padding:7px 12px;border:0;background:transparent;color:var(--rail-ink);cursor:pointer}
+aside.rail .langsw button[aria-pressed="true"]{background:var(--rail-lime);color:#141a10}
+aside.rail .rloc,aside.rail .toggle{font:600 .6rem/1.3 "Inter Tight",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--rail-dim)}
+aside.rail .toggle{display:flex;gap:6px;align-items:center}
+aside.rail .toggle input{accent-color:var(--rail-lime)}
+aside.rail .mclose{display:none;align-self:flex-end;width:44px;height:44px;border:0;background:none;color:inherit;cursor:pointer;place-items:center}
+/* v1.6 · the rail is a menu on every screen: a top bar with the burger, the panel slides in on demand */
+.langbtn{display:inline-flex;align-items:center;justify-content:center;margin-left:auto;margin-right:12px;height:34px;min-width:44px;padding:0 10px;border:1px solid currentColor;border-radius:999px;
+  background:transparent;font:600 .7rem/1 "Inter Tight",Arial,sans-serif;letter-spacing:.08em;color:inherit;cursor:pointer}
+header.top{display:flex;align-items:center}
+aside.rail{position:fixed;top:0;bottom:0;width:min(400px,90vw);transform:translateX(-100%);visibility:hidden;transition:transform .6s cubic-bezier(.7,0,.2,1),visibility 0s .6s;box-shadow:0 0 60px rgba(0,0,0,.35)}
+body.menu aside.rail{transform:none;visibility:visible;transition:transform .6s cubic-bezier(.7,0,.2,1)}
+aside.rail .mclose{display:grid}
+.mscrim{position:fixed;inset:0;z-index:79;background:rgba(14,19,11,.38);opacity:0;pointer-events:none;transition:opacity .5s}
+body.menu .mscrim{opacity:1;pointer-events:auto}
+aside.rail .mbig a{font-size:clamp(26px,2.3vw,34px)}
+aside.rail .mbig a.mgame{font-size:1.02rem;letter-spacing:-.01em;margin-top:10px;color:var(--rail-lime)}
+aside.rail .mbig a.mgame:hover{color:var(--rail-ink)}
+aside.rail .mbig a .rn{display:inline-block;width:2.1em;font:600 .62rem/1 "Inter Tight",Arial,sans-serif;letter-spacing:.08em;color:var(--rail-dim);vertical-align:.9em}
+aside.rail .mbig a.mgame .rn{vertical-align:.1em}
+
+/* feed link nested under Social & Content */
+aside.rail .mfields a.msub{padding-left:20px;font-size:.92rem}
+aside.rail .mfields a.msub i{width:6px;height:6px}
+aside.rail .toggle{display:none!important}html.review aside.rail .toggle{display:flex!important}

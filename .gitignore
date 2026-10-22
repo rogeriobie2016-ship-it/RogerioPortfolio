@@ -1,0 +1,16 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Dev-only material (kept in Portfolio_Site_v20, never published)
+_build/
+_bak*/
+_*.html
+netlify/
+netlify.toml
+node_modules/
+*.bak
+*.part
