@@ -84,3 +84,15 @@ html.x-lock,html.x-lock body{overflow:hidden}
 @media (max-width:900px){.x-nav{display:none}.x-in{justify-content:space-between}}
 @media (max-width:420px){.x-bt{display:none}.x-burger{padding:10px 12px}.x-sel{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.x-drawer,.x-scrim{transition:none}}
+
+/* ---------- v2.0: language switch with flags (EN / PT), always visible ---------- */
+.x-chip.lang-flags{display:inline-flex;align-items:center;gap:2px;padding:3px;border-radius:999px;border:1.5px solid rgba(242,247,230,.55);background:rgba(0,0,0,.18)}
+.x-chip.lang-flags:hover{background:rgba(0,0,0,.28);color:inherit}
+.lang-flags .lf{display:inline-flex;align-items:center;gap:7px;padding:6px 11px 6px 7px;border-radius:999px;color:rgba(242,247,230,.75);transition:background .25s,color .25s}
+.lang-flags .lf b{font:800 13px/1 "Inter Tight",Arial,sans-serif;letter-spacing:.04em}
+.lang-flags .lf.on{background:#F2F7E6;color:#131210}
+.lang-flags .lf:not(.on) .flag{filter:saturate(.85);opacity:.85}
+.flag{width:27px;height:19px;border-radius:3px;flex:none;display:block;box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.x-lang button{display:inline-flex;align-items:center;gap:7px}
+.x-lang button b{font:inherit}
+@media (max-width:420px){.lang-flags .lf b{display:none}.lang-flags .lf{padding:5px 6px}}

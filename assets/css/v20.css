@@ -102,3 +102,28 @@
 .agenda .more{font-family:var(--f-sans)}
 
 @media (max-width:900px){.wordmark{font-size:clamp(48px,13vw,120px)}}
+
+/* ---------- feed shelf: the press-page reel interaction (lift + lime frame + lime play) ---------- */
+.vbtn{border:1.5px solid transparent;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .35s}
+.vbtn:hover,.vbtn:focus-visible{transform:translateY(-6px);border-color:var(--lime);box-shadow:0 22px 40px -22px rgba(0,0,0,.6)}
+.vbtn .vplay{transition:background .25s,color .25s,border-color .25s,transform .3s}
+.vbtn:hover .vplay{transform:none;background:var(--lime);color:#131210;border-color:var(--lime)}
+.shelf-arrow{background:var(--lime);color:#131210;border:0}
+.shelf-arrow:hover{background:var(--ink);color:var(--paper)}
+
+/* ---------- more work: closed by default, opens on demand ---------- */
+.more-work{margin-top:72px;border-top:1.5px solid var(--ink)}
+.more-work>summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 22px;margin:0;border-top:0;padding:16px 0 18px;border-bottom:1px solid var(--rule)}
+.more-work>summary::-webkit-details-marker{display:none}
+.more-work>summary h3{margin:0}
+.mw-btn{display:inline-flex;align-items:center;gap:8px;margin-left:auto;font:700 12.5px/1 var(--f-sans);letter-spacing:.09em;text-transform:uppercase;border:1.5px solid var(--ink);border-radius:999px;padding:10px 14px;transition:background .2s,color .2s}
+.mw-btn svg{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.more-work>summary:hover .mw-btn{background:var(--ink);color:var(--paper)}
+.mw-close{display:none}
+.more-work[open] .mw-open{display:none}.more-work[open] .mw-close{display:inline}
+.more-work[open] .mw-btn svg{transform:rotate(180deg)}
+.mw-peek{flex-basis:100%;font-family:var(--f-title);font-style:italic;font-size:17px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.more-work[open] .mw-peek{display:none}
+.more-work[open] .g-more{margin-top:26px;animation:mwin .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes mwin{from{opacity:0;transform:translateY(-8px)}}
+@media (prefers-reduced-motion:reduce){.more-work[open] .g-more{animation:none}}
