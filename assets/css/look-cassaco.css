@@ -1,0 +1,196 @@
+/* Rogério Bié · look "cassaco": pieces borrowed from the Cassaco Produtora site, on Rogério's own palette.
+   Floating header capsule, condensed caps titles (Anybody), mono labels in pills (IBM Plex Mono), 2px ink borders,
+   pill buttons with a hard shadow, sticker photos, a rotating seal. Everything is scoped to html[data-look="cassaco"]. */
+html[data-look="cassaco"]{
+  --f-cond:"Anybody","Archivo","Inter Tight",Arial,sans-serif;
+  --f-mono2:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --hard:4px 4px 0 var(--ink);
+  --hard-lg:7px 7px 0 var(--ink);
+  --bd:2px solid var(--ink);
+  --stk:0 1px 2px rgba(18,15,10,.2),0 8px 18px rgba(18,15,10,.18);
+}
+html[data-look="cassaco"] body{background:var(--paper)}
+
+/* ================= header: a floating capsule ================= */
+html[data-look="cassaco"] .x-top{top:10px;margin:10px auto 0;width:calc(100% - 24px);max-width:1340px;background:var(--card,#FBFAF6);background-image:none;
+  border:var(--bd);border-radius:18px;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 14px 30px -22px rgba(0,0,0,.45);padding-top:0}
+html[data-look="cassaco"] .x-top.scrolled,html[data-look="cassaco"] .x-top.x-always{border-color:var(--ink)}
+html[data-look="cassaco"] .x-in{min-height:56px;padding-inline:16px 10px}
+html[data-look="cassaco"] .x-mark{color:var(--ink);font-family:var(--f-title,"Newsreader"),Georgia,serif;font-weight:500;font-size:23px}
+html[data-look="cassaco"] .x-nav a{color:var(--ink);font-family:"Inter Tight",Arial,sans-serif;font-weight:600;font-size:14.5px;letter-spacing:0;text-transform:none;padding:7px 11px}
+html[data-look="cassaco"] .x-nav a:hover,html[data-look="cassaco"] .x-nav a.on,html[data-look="cassaco"] .x-nav a[aria-current="page"]{background:var(--ink);color:var(--paper)}
+html[data-look="cassaco"] .x-chip{border:var(--bd);color:var(--ink);background:transparent}
+html[data-look="cassaco"] .x-chip:hover{background:var(--ink);color:var(--paper)}
+html[data-look="cassaco"] .x-chip.lang-flags{border:var(--bd);background:transparent;padding:3px}
+html[data-look="cassaco"] .x-chip.lang-flags:hover{background:transparent}
+html[data-look="cassaco"] .lang-flags .lf{color:var(--ink)}
+html[data-look="cassaco"] .lang-flags .lf.on{background:var(--ink);color:var(--paper)}
+html[data-look="cassaco"] .lang-flags .lf b{font-family:var(--f-mono2);font-weight:600}
+html[data-look="cassaco"] .x-burger{background:var(--ink);color:var(--paper);border:var(--bd)}
+html[data-look="cassaco"] .x-burger:hover{background:var(--lime);color:#131210}
+
+/* drawer: same green, condensed caps */
+html[data-look="cassaco"] .x-main a{font-family:var(--f-cond);font-stretch:62%;font-weight:900;text-transform:uppercase;letter-spacing:0;font-size:clamp(28px,4vh,40px);line-height:.95}
+html[data-look="cassaco"] .x-lab,html[data-look="cassaco"] .x-n,html[data-look="cassaco"] .x-dmark small{font-family:var(--f-mono2);font-weight:500;letter-spacing:.06em}
+html[data-look="cassaco"] .x-sel a{border:1.5px solid rgba(242,247,230,.3)}
+
+/* ================= type: condensed caps titles, mono labels ================= */
+html[data-look="cassaco"] .phead h1,
+html[data-look="cassaco"] .shead h2.display,
+html[data-look="cassaco"] .band-head h2,
+html[data-look="cassaco"] .intro h2.display,
+html[data-look="cassaco"] .t-old,
+html[data-look="cassaco"] .rs-h,
+html[data-look="cassaco"] .np-sechead h2{font-family:var(--f-cond);font-stretch:60%;font-weight:900;text-transform:uppercase;letter-spacing:-.005em;line-height:.86;filter:none;font-style:normal}
+html[data-look="cassaco"] .shead h2.display{font-size:clamp(56px,8vw,128px)}
+html[data-look="cassaco"] .phead h1{font-size:clamp(64px,11vw,168px);line-height:.82}
+html[data-look="cassaco"] .band-head h2{font-size:clamp(48px,6.8vw,104px)}
+/* marks become stickers: solid color, slight tilt, hard ink shadow */
+html[data-look="cassaco"] .phead h1 mark,
+html[data-look="cassaco"] .shead h2.display mark,
+html[data-look="cassaco"] .band-head h2 mark,
+html[data-look="cassaco"] .intro h2.display mark,
+html[data-look="cassaco"] .t-old mark,
+html[data-look="cassaco"] .rs-h mark,
+html[data-look="cassaco"] .np-sechead h2 mark{font-style:normal;display:inline-block;background:var(--hl,var(--lime));background-image:none;color:#131210;padding:.04em .1em 0;margin:0 .02em;border-radius:.05em;
+  rotate:-1.5deg;box-shadow:.05em .05em 0 var(--ink);line-height:.92}
+/* the intro headline wraps inside its marks, so they stay inline and repeat their box on each line */
+html[data-look="cassaco"] .intro h2.display mark{display:inline;rotate:none;transform:none;padding:0 .08em;-webkit-box-decoration-break:clone;box-decoration-break:clone;line-height:inherit}
+html[data-look="cassaco"] mark.m-y{--hl:var(--yellow)}
+html[data-look="cassaco"] mark.m-r{--hl:var(--red);color:var(--on-red)!important}
+html[data-look="cassaco"] mark.m-b{--hl:var(--blue)}
+html[data-look="cassaco"] .intro h2.display mark.m-y,html[data-look="cassaco"] .shead h2 mark:nth-of-type(2){rotate:1.2deg}
+
+html[data-look="cassaco"] .mono,
+html[data-look="cassaco"] .eyebrow,
+html[data-look="cassaco"] .np-kick,
+html[data-look="cassaco"] .kick,
+html[data-look="cassaco"] .tray-lab,
+html[data-look="cassaco"] .count{font-family:var(--f-mono2);font-weight:500;letter-spacing:.06em}
+html[data-look="cassaco"] .tray-lab{font-size:12px}
+
+/* ================= buttons: pills with a hard shadow ================= */
+html[data-look="cassaco"] .btn,
+html[data-look="cassaco"] .np-read,
+html[data-look="cassaco"] .chip-btn{border:var(--bd);border-radius:999px;font-family:"Inter Tight",Arial,sans-serif;font-weight:700;transition:transform .15s,box-shadow .15s,background .2s,color .2s}
+html[data-look="cassaco"] .btn{padding:13px 22px;font-size:15.5px;background:transparent;color:var(--ink)}
+html[data-look="cassaco"] .btn.solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+html[data-look="cassaco"] .btn:hover,html[data-look="cassaco"] .btn.solid:hover{background:var(--lime);color:#131210;border-color:var(--ink);transform:translate(-2px,-2px);box-shadow:var(--hard)}
+html[data-look="cassaco"] .np-read{display:inline-flex;padding:9px 16px;border-bottom:var(--bd)}
+html[data-look="cassaco"] .np-read:hover{background:var(--lime);color:#131210;transform:translate(-2px,-2px);box-shadow:var(--hard)}
+html[data-look="cassaco"] .more{border:var(--bd);border-radius:999px;padding:9px 16px;transition:transform .15s,box-shadow .15s,background .2s}
+html[data-look="cassaco"] .more:hover{color:#131210;background:var(--lime);transform:translate(-2px,-2px);box-shadow:var(--hard)}
+html[data-look="cassaco"] .play-btn{border:var(--bd);box-shadow:var(--hard)}
+html[data-look="cassaco"] .reel-sound{border-width:2px}
+
+/* ================= hero: the field chips become pills ================= */
+html[data-look="cassaco"] .v19 .field-chips{gap:8px;border-top:0;padding-top:4px}
+html[data-look="cassaco"] .v19 .field-chips .fchip{border:var(--bd);border-radius:999px;padding:7px 13px 6px;font-family:var(--f-mono2);font-weight:500;font-size:12px;letter-spacing:.05em;transition:background .2s,color .2s,transform .15s,box-shadow .15s}
+html[data-look="cassaco"] .v19 .field-chips .fchip:hover{background:var(--ink);color:var(--paper);transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--c)}
+html[data-look="cassaco"] .v19 .field-chips .fchip:hover::before{background:var(--c)}
+
+/* ================= home intro: Cassaco hero layout ================= */
+html[data-look="cassaco"] .intro{padding-block:clamp(72px,8vw,120px) clamp(20px,3vw,36px);overflow:visible}
+html[data-look="cassaco"] .intro-txt{max-width:none;position:relative;z-index:1}
+html[data-look="cassaco"] .intro .eyebrow{display:inline-block;background:transparent;color:var(--ink);border:var(--bd);border-radius:999px;padding:7px 14px 6px;rotate:0deg;font-size:12px}
+html[data-look="cassaco"] .intro h2.display{font-size:clamp(58px,9vw,150px);line-height:.9;max-width:16ch;margin-top:22px!important;text-wrap:balance}
+html[data-look="cassaco"] .intro h2.display .w{line-height:inherit}
+html[data-look="cassaco"] .intro .lede{max-width:46ch;margin-top:30px;font-size:clamp(18px,1.5vw,21px);line-height:1.5;color:var(--ink-2)}
+html[data-look="cassaco"] .intro .lede>span{background:none;color:inherit;padding:0;line-height:inherit}
+html[data-look="cassaco"] .lk-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+html[data-look="cassaco"] .lk-row .btn{margin-top:0}
+/* the seal: rotating text around a play button */
+html[data-look="cassaco"] .lk-seal{position:absolute;z-index:2;right:max(calc(var(--gut) + 2vw),calc((100vw - 1360px)/2 + 60px));top:calc(50% - clamp(70px,9vw,135px));width:clamp(140px,18vw,270px);aspect-ratio:1;display:block;
+  rotate:-8deg;filter:drop-shadow(0 10px 18px rgba(18,15,10,.25));transition:scale .25s cubic-bezier(.3,1.6,.5,1)}
+html[data-look="cassaco"] .lk-seal:hover{scale:1.07}
+html[data-look="cassaco"] .lk-seal svg{width:100%;height:100%;display:block;overflow:visible}
+html[data-look="cassaco"] .lk-s-bg{fill:var(--blue);stroke:#fff;stroke-width:5}
+html[data-look="cassaco"] .lk-s-in{fill:var(--lime);stroke:#131210;stroke-width:3}
+html[data-look="cassaco"] .lk-s-play{fill:#131210}
+html[data-look="cassaco"] .lk-seal text{font-family:var(--f-mono2);font-weight:600;font-size:15.5px;letter-spacing:.09em;fill:#131210}
+html[data-look="cassaco"] .lk-s-rot{transform-origin:100px 100px;animation:lkspin 22s linear infinite}
+@keyframes lkspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){html[data-look="cassaco"] .lk-s-rot{animation:none}}
+@media (max-width:900px){html[data-look="cassaco"] .lk-seal{width:120px;top:auto;bottom:24px}}
+@media (max-width:700px){html[data-look="cassaco"] .lk-seal{display:none}html[data-look="cassaco"] .num{padding-block:22px 24px}}
+
+/* ================= field photos: stickers with mono labels ================= */
+html[data-look="cassaco"] .strip{padding-block:0 40px}
+html[data-look="cassaco"] .strip-scroll{padding-block:34px 40px}
+html[data-look="cassaco"] .strip figure{border:7px solid #fff;border-radius:24px;background:#fff;box-shadow:var(--stk);rotate:-2.2deg;translate:0 4px}
+html[data-look="cassaco"] .strip figure:nth-child(even){rotate:1.8deg;translate:0 -8px}
+html[data-look="cassaco"] .strip figure:nth-child(3n){rotate:-.8deg;translate:0 10px}
+html[data-look="cassaco"] .strip img{border-radius:17px;box-shadow:none}
+html[data-look="cassaco"] .strip figure:hover{rotate:0deg;translate:0 -6px;box-shadow:0 2px 3px rgba(18,15,10,.16),0 18px 32px rgba(18,15,10,.24)}
+html[data-look="cassaco"] .strip figcaption,
+html[data-look="cassaco"] .strip figure:nth-child(even) figcaption{left:10px;right:auto;top:auto;bottom:10px;max-width:calc(100% - 20px);rotate:0deg;border:var(--bd);border-color:#131210;border-radius:999px;padding:7px 12px 6px;
+  font-family:var(--f-mono2);font-weight:500;font-size:11.5px;line-height:1.25;letter-spacing:.04em;box-shadow:2px 2px 0 #131210}
+html[data-look="cassaco"] .strip figure.is-on figcaption{border-radius:14px;font-size:13px}
+html[data-look="cassaco"] .strip figure.is-on{scale:1.06;box-shadow:0 2px 3px rgba(18,15,10,.16),0 22px 40px rgba(18,15,10,.3)}
+html[data-look="cassaco"] .strip figure.is-on .strip-hint{font-family:var(--f-mono2);font-weight:500;font-size:11px}
+html[data-look="cassaco"] .strip-arrow{border:var(--bd);background:var(--card);color:var(--ink);box-shadow:var(--hard)}
+html[data-look="cassaco"] .strip-arrow:hover{background:var(--lime);color:#131210}
+
+/* ================= numbers: three bordered cards ================= */
+html[data-look="cassaco"] .numbers{gap:14px;padding:0 var(--gut);max-width:1360px;margin:24px auto 0}
+html[data-look="cassaco"] .num{border:var(--bd);border-radius:22px;box-shadow:var(--hard)}
+html[data-look="cassaco"] .num b{font-family:var(--f-cond);font-stretch:62%;font-weight:900;letter-spacing:0;font-size:clamp(72px,9vw,150px);line-height:.82}
+html[data-look="cassaco"] .num span{font-weight:600}
+@media (max-width:700px){html[data-look="cassaco"] .numbers{grid-template-columns:1fr}}
+
+/* the selected-work tray: one bordered capsule */
+html[data-look="cassaco"] .tray-lab{max-width:1360px;margin:28px auto 0;padding-inline:var(--gut)}
+html[data-look="cassaco"] .tray.tray-h{margin:10px var(--gut) 0;border:var(--bd);border-radius:18px;overflow-x:auto}
+@media (min-width:1400px){html[data-look="cassaco"] .tray.tray-h{margin-inline:auto;max-width:1320px}}
+
+/* ================= cards: ink border, rounded, lift with a hard shadow ================= */
+html[data-look="cassaco"] .card .mp,
+html[data-look="cassaco"] .pcard img,
+html[data-look="cassaco"] .feature-media,
+html[data-look="cassaco"] .np-aimg,
+html[data-look="cassaco"] .np-bimg{border:var(--bd);border-radius:18px;overflow:hidden}
+html[data-look="cassaco"] .card .mp{transition:transform .18s,box-shadow .18s}
+html[data-look="cassaco"] .card:hover .mp,html[data-look="cassaco"] .pcard:hover img{transform:translate(-3px,-3px);box-shadow:var(--hard)}
+html[data-look="cassaco"] .card h3,html[data-look="cassaco"] .pcard b{font-family:var(--f-cond);font-stretch:66%;font-weight:900;text-transform:uppercase;letter-spacing:0;line-height:.9}
+html[data-look="cassaco"] .card h3{font-size:clamp(28px,2.5vw,38px)}
+html[data-look="cassaco"] .card.sm h3{font-size:26px}
+html[data-look="cassaco"] .card:hover h3,html[data-look="cassaco"] .feature:hover h3{text-decoration:none}
+html[data-look="cassaco"] .mp-tag{font-family:var(--f-mono2);font-weight:500;border:var(--bd);border-radius:999px}
+html[data-look="cassaco"] .feature h3{font-family:var(--f-cond);font-stretch:62%;font-weight:900;text-transform:uppercase;letter-spacing:0;line-height:.86}
+html[data-look="cassaco"] .voice{border:var(--bd);box-shadow:var(--hard);border-radius:22px}
+html[data-look="cassaco"] .voice figcaption em{font-family:var(--f-mono2);font-weight:500}
+html[data-look="cassaco"] .np-acard,html[data-look="cassaco"] .rs-work{transition:transform .18s}
+
+/* impact and field cards: colored stickers with an ink edge */
+html[data-look="cassaco"] .imp,html[data-look="cassaco"] .door{border:var(--bd);border-radius:22px;transition:transform .18s,box-shadow .18s}
+html[data-look="cassaco"] .imp:hover,html[data-look="cassaco"] .door:hover{transform:translate(-3px,-3px);box-shadow:var(--hard)}
+html[data-look="cassaco"] .impn,html[data-look="cassaco"] .door b,html[data-look="cassaco"] .imp h3{font-family:var(--f-cond);font-stretch:64%;font-weight:900;text-transform:uppercase;letter-spacing:0;line-height:.9}
+html[data-look="cassaco"] .impn{font-size:clamp(60px,6.4vw,100px)}
+html[data-look="cassaco"] .imp h3{font-size:28px}
+html[data-look="cassaco"] .door b{font-size:clamp(32px,3vw,44px)}
+html[data-look="cassaco"] .door span{width:38px;height:38px;border-radius:50%;background:#131210;color:#fff;display:grid;place-items:center}
+html[data-look="cassaco"] .x-fmark i{background:var(--dot,#2F9E44)}
+
+/* cases.html: v17 forces the serif with !important, so the titles answer in kind */
+html[data-look="cassaco"] .phead h1,html[data-look="cassaco"] .case h1,html[data-look="cassaco"] h1.display,html[data-look="cassaco"] h2.display{font-family:var(--f-cond)!important;font-stretch:60%!important;font-weight:900!important;text-transform:uppercase!important;letter-spacing:-.005em!important;line-height:.86!important}
+html[data-look="cassaco"] .case .phead h1{font-size:clamp(56px,8.4vw,132px);max-width:16ch}
+html[data-look="cassaco"] .case .hero,html[data-look="cassaco"] .cgi,html[data-look="cassaco"] .aside-poster img{border:var(--bd);border-radius:18px;overflow:hidden}
+html[data-look="cassaco"] .case .hero+.hero{margin-top:10px}
+html[data-look="cassaco"] .bigfig b{font-family:var(--f-cond);font-stretch:62%;font-weight:900;letter-spacing:0}
+html[data-look="cassaco"] .klink,html[data-look="cassaco"] .krow{transition:transform .15s}
+html[data-look="cassaco"] .pn a{border:var(--bd);border-radius:18px;padding:16px 18px;transition:transform .15s,box-shadow .15s}
+html[data-look="cassaco"] .pn a:hover{transform:translate(-2px,-2px);box-shadow:var(--hard)}
+html[data-look="cassaco"] .mapbox{border:var(--bd);border-radius:22px}
+html[data-look="cassaco"] .tl{border:var(--bd);border-radius:18px}
+html[data-look="cassaco"] .tl b{font-family:var(--f-cond);font-stretch:62%;font-weight:900;letter-spacing:0}
+
+/* ================= footer ================= */
+html[data-look="cassaco"] .x-foot{border-radius:28px 28px 0 0;margin-inline:0}
+html[data-look="cassaco"] .x-pill{border-width:2px;font-weight:700}
+html[data-look="cassaco"] .x-pill:hover{box-shadow:3px 3px 0 #F3F0E9;transform:translate(-2px,-2px)}
+html[data-look="cassaco"] .x-fsmall{font-family:var(--f-mono2);font-weight:500;letter-spacing:.05em}
+
+/* the preview switch */
+.lk-switch{position:fixed;left:14px;bottom:14px;z-index:60;font:500 12px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.04em;text-decoration:none;color:var(--ink);background:var(--card,#fff);
+  border:2px solid var(--ink);border-radius:999px;padding:9px 13px;box-shadow:3px 3px 0 var(--ink)}
+.lk-switch:hover{background:var(--lime);color:#131210}
