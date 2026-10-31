@@ -144,6 +144,7 @@ body>header.top,.mscrim,#mpanel,footer#contact-old{display:none!important}
 .ytf .ytp{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:12px;background:#B7DE43;color:#131210;font:700 17px/1 "Inter Tight",Arial,sans-serif;padding:14px 22px 14px 14px;border-radius:999px;box-shadow:0 14px 34px -10px rgba(0,0,0,.6)}
 .ytf .ytp i{width:40px;height:40px;border-radius:50%;background:#131210;color:#B7DE43;display:grid;place-items:center;font-style:normal}
 .hero.vid.yt iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.case .hero.vid.loop{aspect-ratio:16/9}.case .hero.vid.loop video{object-fit:cover}.case .hero+.hero{margin-top:4px}
 </style>
 </head><body>
 <title>Rogério Bié Portfolio</title>
@@ -1953,6 +1954,7 @@ function field(k){
 }
 const CASEVID={
   ssz:p=>`<div class="hero vid"><video controls playsinline preload="none" poster="img/ssz-sample-poster.jpg"><source src="assets/video/ssz-sample.mp4" type="video/mp4"></video></div>`,
+  bcon:p=>`<div class="hero vid loop"><video autoplay muted loop playsinline preload="metadata" poster="img/bcon-vinheta-poster.jpg" aria-label="${T("Brazil Conference at Harvard & MIT 2027 opening animation","Vinheta de abertura da Brazil Conference at Harvard & MIT 2027")}"><source src="assets/video/bcon-vinheta.mp4" type="video/mp4"></video></div><figure class="hero"><img src="img/bcon-5.jpg" alt="${T("Group photo at the Brazil Conference at Harvard & MIT","Foto do grupo na Brazil Conference at Harvard & MIT")}" loading="lazy" decoding="async"></figure>`,
   wind:p=>`<div class="hero vid yt"><button type="button" class="ytf" data-yt="hNjRzGMewbI" aria-label="${T("Children of the Wind, full documentary","Filhos do Vento, documentário completo")}"><img src="img/wind-poster-h.jpg" alt=""><span class="ytp"><i>▶</i>${T("Watch the full documentary","Assista ao documentário completo")}</span></button></div>`};
 function caseView(id){
   const p0=byId[id], i=P.indexOf(p0), prev=LOC(P[(i-1+P.length)%P.length]), next=LOC(P[(i+1)%P.length]), p=LOC(p0);
