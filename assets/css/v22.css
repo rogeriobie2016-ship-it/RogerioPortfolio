@@ -1,0 +1,44 @@
+/* Rogério Bié · v2.2 · on top of v21.css. Intro centered in the title serif over a quiet duotone photo grid, field photos back to their own shape and drifting, no colored tapes, and photos that don't fit their frame shown whole on a blurred copy. */
+
+/* ---------- intro: centered, the "Selected work" serif, duotone grid behind ---------- */
+.intro{padding-block:clamp(84px,11vw,150px) clamp(64px,8vw,110px);text-align:center;overflow:hidden}
+.intro-grid{display:block}
+.intro-txt{max-width:1080px;margin-inline:auto;position:relative;z-index:1}
+.intro .eyebrow{display:inline-block;background:none;color:var(--ink-2,var(--ink));padding:0;rotate:0deg;letter-spacing:.14em}
+.intro h2.display{font-family:var(--f-title);font-weight:500;letter-spacing:-.03em;line-height:1.02;filter:url(#ink19);font-size:clamp(46px,7vw,112px);text-wrap:balance;margin-inline:auto;max-width:18ch}
+.intro h2.display mark{font-style:italic;background:var(--hl,var(--lime));background-image:none;color:#131210;padding:0 .12em .02em .06em;border-radius:.06em;rotate:0deg;transform:rotate(-.6deg);box-shadow:none;display:inline-block;line-height:.95}
+.intro h2.display mark.m-y{--hl:var(--yellow);rotate:0deg}
+.intro .lede{max-width:44ch;margin:26px auto 0;font-size:clamp(18px,1.6vw,23px);line-height:1.45;color:var(--ink-2,var(--ink))}
+.intro .lede>span{display:inline;background:none;color:inherit;padding:0;line-height:inherit}
+.intro .btn{margin-top:30px}
+
+.i22-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--paper)}
+.i22-bg .g{position:absolute;inset:-6%;display:grid;grid-template-columns:repeat(var(--cols,8),1fr);gap:10px;opacity:.55;transform:rotate(-4deg) scale(1.08)}
+.i22-bg .g span{aspect-ratio:4/5;background:center/cover no-repeat;filter:grayscale(1) contrast(1.1);border-radius:4px}
+.i22-bg::before{content:"";position:absolute;inset:0;z-index:1;background:var(--forest);opacity:.5}
+.i22-bg::after{content:"";position:absolute;inset:0;z-index:2;background:radial-gradient(70% 62% at 50% 50%,var(--paper) 30%,color-mix(in srgb,var(--paper) 86%,transparent) 62%,color-mix(in srgb,var(--paper) 66%,transparent))}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .i22-bg::before{opacity:.35}:root:not([data-theme="light"]) .i22-bg .g{opacity:.4}}
+:root[data-theme="dark"] .i22-bg::before{opacity:.35}:root[data-theme="dark"] .i22-bg .g{opacity:.4}
+@media (max-width:700px){.i22-bg .g{--cols:4!important}.i22-bg::after{background:radial-gradient(95% 70% at 50% 50%,var(--paper) 40%,color-mix(in srgb,var(--paper) 86%,transparent) 70%,color-mix(in srgb,var(--paper) 66%,transparent))}.intro h2.display{max-width:none}}
+
+/* ---------- field photos: their own shape, drifting, the theme shows on click ---------- */
+.strip{padding-block:18px 40px}
+.strip-scroll{padding:16px var(--gut) 22px}
+.strip-track{gap:14px;align-items:stretch}
+.strip figure,.strip figure:nth-child(even){width:auto;height:clamp(230px,24vw,330px);rotate:0deg;translate:0 0;border-radius:14px;overflow:hidden;background:var(--paper-2)}
+.strip figure:hover{rotate:0deg;translate:0 -4px}
+.strip img{position:static;display:block;height:100%;width:auto;min-width:120px;object-fit:cover;border-radius:0;box-shadow:none}
+.strip figcaption,.strip figure:nth-child(even) figcaption{left:0;right:0;top:auto;bottom:0;max-width:none;rotate:0deg;padding:42px 16px 14px;background:linear-gradient(to top,rgba(10,12,8,.82),transparent);color:#fff;
+  font-family:var(--f-title);font-weight:500;font-size:clamp(17px,1.4vw,21px);line-height:1.1;letter-spacing:-.01em;text-transform:none;box-shadow:none;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.strip figure.is-on{scale:1.03;translate:0 -6px;rotate:0deg}
+.strip figure.is-on figcaption,.strip figure.is-on:nth-child(even) figcaption{opacity:1;transform:none;max-width:none}
+.strip figure.is-on .strip-hint,.strip figure.is-on:nth-child(even) .strip-hint{top:12px;bottom:auto;left:12px;font-family:var(--f-mono,monospace);font-weight:500;font-size:11px;background:rgba(10,12,8,.72);color:#fff}
+.strip.has-on figure:not(.is-on){opacity:.55}
+@media (hover:none){.strip figcaption{opacity:0}}
+@media (max-width:700px){.strip figure,.strip figure:nth-child(even){width:auto;height:min(92vw,360px)}}
+
+/* ---------- photos that don't fit their frame: whole, on a blurred copy ---------- */
+img.fit{object-fit:contain!important;object-position:50% 50%!important}
+.fit-bg{position:absolute;inset:-24px;background:center/cover no-repeat;filter:blur(20px) saturate(.85) brightness(.85);pointer-events:none}
+.mp .fit-bg{opacity:0;transition:opacity 1.2s ease}
+.mp .fit-bg:has(+img.on){opacity:1}

@@ -130,7 +130,7 @@
 @media (max-width:980px){.np-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.np-grid>.np-lead-col{grid-column:1/-1;padding:0 0 16px;border-bottom:1px solid var(--npr);margin-bottom:16px}.np-grid>*:nth-child(2){border-left:0;padding-left:0}.np-leadwrap{grid-template-columns:1fr}}
 @media (max-width:640px){.np{transform:none}.np-grid{grid-template-columns:1fr}.np-grid>*{padding:0;border-left:0}.np-head{grid-template-columns:1fr}.np-ear{display:none}.np-sub{justify-content:center;text-align:center}}
 </style><link rel="stylesheet" href="assets/css/fonts.css"><link rel="stylesheet" href="assets/css/rail.css"><link rel="stylesheet" href="assets/css/v15.css"><link rel="stylesheet" href="assets/css/v17.css">
-<link rel="stylesheet" href="assets/css/chrome.css"><link rel="stylesheet" href="assets/css/chrome20.css">
+<link rel="stylesheet" href="assets/css/chrome.css"><link rel="stylesheet" href="assets/css/chrome20.css"><link rel="stylesheet" href="assets/css/v22.css">
 <style>
 body>header.top,.mscrim,#mpanel,footer#contact-old{display:none!important}
 .x-top{position:sticky}
@@ -145,6 +145,11 @@ body>header.top,.mscrim,#mpanel,footer#contact-old{display:none!important}
 .ytf .ytp i{width:40px;height:40px;border-radius:50%;background:#131210;color:#B7DE43;display:grid;place-items:center;font-style:normal}
 .hero.vid.yt iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
 .case .hero.vid.loop{aspect-ratio:16/9}.case .hero.vid.loop video{object-fit:cover}.case .hero+.hero{margin-top:4px}
+.cvids{margin-top:clamp(40px,6vw,72px)}.cvids .vrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px;margin-top:18px}
+.cvids .vcell{margin:0;min-width:0}.cvids .vcell.h{grid-column:span 2}
+.cvids video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:14px;background:#0b0c0a}.cvids .vcell.h video{aspect-ratio:16/9}
+.cvids .vcell.h{align-self:center}.cvids figcaption{margin-top:9px;font-size:14px;line-height:1.3;color:var(--muted,inherit)}
+@media (max-width:600px){.cvids .vrow{grid-template-columns:repeat(2,1fr);gap:12px}.cvids .vcell.h{grid-column:1/-1}}
 </style>
 </head><body>
 <title>Rogério Bié Portfolio</title>
@@ -1956,6 +1961,21 @@ const CASEVID={
   ssz:p=>`<div class="hero vid"><video controls playsinline preload="none" poster="img/ssz-sample-poster.jpg"><source src="assets/video/ssz-sample.mp4" type="video/mp4"></video></div>`,
   bcon:p=>`<div class="hero vid loop"><video autoplay muted loop playsinline preload="metadata" poster="img/bcon-vinheta-poster.jpg" aria-label="${T("Brazil Conference at Harvard & MIT 2027 opening animation","Vinheta de abertura da Brazil Conference at Harvard & MIT 2027")}"><source src="assets/video/bcon-vinheta.mp4" type="video/mp4"></video></div><figure class="hero"><img src="img/bcon-5.jpg" alt="${T("Group photo at the Brazil Conference at Harvard & MIT","Foto do grupo na Brazil Conference at Harvard & MIT")}" loading="lazy" decoding="async"></figure>`,
   wind:p=>`<div class="hero vid yt"><button type="button" class="ytf" data-yt="hNjRzGMewbI" aria-label="${T("Children of the Wind, full documentary","Filhos do Vento, documentário completo")}"><img src="img/wind-poster-h.jpg" alt=""><span class="ytp"><i>▶</i>${T("Watch the full documentary","Assista ao documentário completo")}</span></button></div>`};
+/* the feed's videos that belong to each case: [file, poster, EN, PT, horizontal] */
+const RV=(id,en,pt,h,dir)=>[`${dir||"media"}/${id}.mp4`,`${dir||"media"}/${id}.jpg`,en,pt,h];
+const CASEREELS={
+  bcon:[RV("bcon-highlight","Brazil Conference at Harvard & MIT","Brazil Conference em Harvard e MIT",0,"assets/feed"),RV("bcon-chamada","Call for the 2026 edition","Chamada da edição 2026",0,"assets/feed"),RV("bcon-bie","Behind the coverage","Bastidores da cobertura",0,"assets/feed"),RV("bcon-tarde","Saturday afternoon","Sábado à tarde"),RV("bcon-domingo","Sunday morning highlights","Melhores momentos de domingo"),RV("bcon-recap","The weekend","O fim de semana")],
+  g20:[RV("g20","G20 & Global Education Meeting","G20 e Reunião Global de Educação",0,"assets/feed"),RV("g20-kauane","Youth newsroom · Kauane Sopchaki","Redação jovem · Kauane Sopchaki"),RV("g20-izadora","Youth newsroom · Izadora Silva","Redação jovem · Izadora Silva")],
+  venice:[RV("venice-asu","ASU at Venice Immersive 2026","A ASU no Venice Immersive 2026"),RV("venice-prize","Awards night","Noite da premiação")],
+  ashes:[RV("oota-bts","Out of the Ashes · behind the scenes","Out of the Ashes · bastidores",1),RV("venice-prize","Venice Immersive 2026 · awards night","Venice Immersive 2026 · noite da premiação")],
+  wind:[RV("wind-teaser","Teaser","Teaser",1),RV("bts-drone","On set in Ceará","No set, no Ceará")],
+  uniform:[RV("uniform","School Uniform Design Contest","Concurso do novo fardamento escolar")],
+  seduc:[RV("seduc-giro","Giro SEDUC Ceará","Giro SEDUC Ceará"),RV("seduc-inclusiva","Inclusive Education: dialogues and paths","Educação inclusiva: diálogos e caminhos"),RV("seduc-identidade","My identity creates belonging","Minha identidade cria pertencimento"),RV("seduc-best","Brazil's best public high school is in Ceará","A melhor escola pública de ensino médio do Brasil é do Ceará",1),RV("seduc-equity","Learning with equity","Aprender com equidade",1)],
+  wanderers:[RV("wanderers","The Wanderers","The Wanderers",0,"assets/feed")]};
+const reels=p=>{const L=CASEREELS[p.id];if(!L)return "";
+  return `<section class="cvids rv" aria-label="${T("Videos","Vídeos")}"><div class="csh"><h2 class="display">${T("Videos","Vídeos")}</h2><span class="mono muted">${L.length} ${T(L.length>1?"pieces · tap to play with sound":"piece · tap to play with sound",L.length>1?"peças · toque para ver com som":"peça · toque para ver com som")}</span></div>
+    <div class="vrow">${L.map(v=>`<figure class="vcell${v[4]?" h":""}"><video controls playsinline preload="none" poster="${v[1]}"><source src="${v[0]}" type="video/mp4"></video><figcaption>${T(v[2],v[3])}</figcaption></figure>`).join("")}</div></section>`};
+document.addEventListener("play",e=>{if(e.target.closest&&e.target.closest(".cvids"))document.querySelectorAll(".cvids video").forEach(v=>{if(v!==e.target)v.pause()})},true);
 function caseView(id){
   const p0=byId[id], i=P.indexOf(p0), prev=LOC(P[(i-1+P.length)%P.length]), next=LOC(P[(i+1)%P.length]), p=LOC(p0);
   let hero;
@@ -1987,6 +2007,7 @@ function caseView(id){
         ${p.need?`<span class="gap">assets: ${p.need}</span>`:""}
       </aside>
     </div>
+    ${reels(p)}
     <section class="acc rv"><h2>${T("Inside the project","Por dentro do projeto")}</h2><div class="acc-items">
       <div class="ai"><h3>${p.st?T("What I'm building","O que estou construindo"):T("What I did","O que eu fiz")}</h3><div class="ab"><ul>${p.did.map(d=>`<li>${d}</li>`).join("")}</ul></div></div>
       ${p.problem?`<div class="ai"><h3>${T("The problem","O problema")}</h3><div class="ab"><p>${p.problem}</p></div></div>`:""}
@@ -2281,4 +2302,5 @@ if($("#copyEmail"))$("#copyEmail").onclick=async()=>{const b=$("#copyEmail");
 boot();addEventListener("hashchange",route);route();
 </script>
 
+<script src="assets/js/v22.js"></script>
 </body></html>

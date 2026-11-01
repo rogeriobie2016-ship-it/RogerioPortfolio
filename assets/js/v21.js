@@ -11,7 +11,7 @@ if(old){
   const strip=old.cloneNode(true);old.replaceWith(strip);
   const sc=$(".strip-scroll",strip),track=$(".strip-track",strip),figs=$$("figure",strip);
   let half=0,acc=0,hoverP=false,on=null,resumeT=0,holdP=false;
-  const measure=()=>{half=track.scrollWidth/2};measure();addEventListener("resize",measure);addEventListener("load",measure);
+  const measure=()=>{half=track.scrollWidth/2};measure();addEventListener("resize",measure);addEventListener("load",measure);$$("img",track).forEach(i=>i.addEventListener("load",measure));
   const hold=ms=>{holdP=true;clearTimeout(resumeT);resumeT=setTimeout(()=>holdP=false,ms||3500)};
   if(!reduce){const tick=()=>{if(!hoverP&&!holdP&&!on&&!document.hidden){acc+=.55;if(acc>=1){const n=Math.floor(acc);acc-=n;sc.scrollLeft+=n;if(half&&sc.scrollLeft>=half)sc.scrollLeft-=half}}requestAnimationFrame(tick)};requestAnimationFrame(tick)}
   sc.addEventListener("pointerenter",e=>{if(e.pointerType==="mouse")hoverP=true});sc.addEventListener("pointerleave",()=>{hoverP=false;hold(1200)});
