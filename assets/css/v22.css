@@ -42,3 +42,14 @@ img.fit{object-fit:contain!important;object-position:50% 50%!important}
 .fit-bg{position:absolute;inset:-24px;background:center/cover no-repeat;filter:blur(20px) saturate(.85) brightness(.85);pointer-events:none}
 .mp .fit-bg{opacity:0;transition:opacity 1.2s ease}
 .mp .fit-bg:has(+img.on){opacity:1}
+
+/* ---------- feed cards on narrow cards: the text gets the full width above the like button ---------- */
+@media (max-width:700px){
+  .vmeta{left:10px;right:10px;bottom:48px;gap:3px}
+  .vmeta b{font-size:14.5px;line-height:1.12}
+  .vmeta small:not(.mono){display:none}
+  .vmeta small.mono{font-size:10.5px}
+  .vlike{right:auto;left:10px;bottom:10px}
+  .vbtn .vchip{max-width:calc(100% - 64px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .vbtn::after{background:linear-gradient(to top,rgba(0,0,0,.9) 8%,rgba(0,0,0,.55) 42%,transparent 66%)}
+}
