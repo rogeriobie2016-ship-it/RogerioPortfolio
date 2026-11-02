@@ -45,3 +45,11 @@
   .cv-head{padding-top:0}
   .cv-sec{break-inside:auto}.cv-row{break-inside:avoid}
 }
+
+/* titles that open the matching case, as in the PDF */
+.cv-what h3 a{color:inherit;text-decoration:none;background-image:linear-gradient(var(--lime),var(--lime));background-size:0 .12em;background-position:0 92%;background-repeat:no-repeat;transition:background-size .3s}
+.cv-what h3 a:hover,.cv-what h3 a:focus-visible{background-size:100% .12em}
+.cv-go{display:inline-block;margin-left:.35em;vertical-align:.12em;opacity:.45;transition:opacity .2s,transform .2s}
+.cv-what h3 a:hover .cv-go{opacity:1;transform:translateX(3px)}
+.cv-inl{color:inherit;text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:2px;text-underline-offset:3px}
+.cv-inl:hover{text-decoration-color:currentColor}
