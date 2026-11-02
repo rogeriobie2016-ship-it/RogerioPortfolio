@@ -1,0 +1,61 @@
+/* Rogério Bié · v2.3 · glass: the header, its controls and the floating buttons get a frosted, lit-from-above glass. Loaded last on every page. */
+:root{
+  --gl-hi:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(255,255,255,.06);
+  --gl-dark:rgba(18,24,14,.38);
+  --gl-dark-bd:rgba(255,255,255,.26);
+  --gl-light:rgba(255,255,255,.52);
+  --gl-light-bd:rgba(255,255,255,.75);
+  --gl-blur:blur(16px) saturate(1.7);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--gl-light:rgba(255,255,255,.08);--gl-light-bd:rgba(255,255,255,.18)}}
+:root[data-theme="dark"]{--gl-light:rgba(255,255,255,.08);--gl-light-bd:rgba(255,255,255,.18)}
+
+/* ---------- header: translucent forest glass with a lit top edge ---------- */
+.x-top{background-color:color-mix(in srgb,var(--x-forest) 84%,transparent);
+  background-image:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.03) 46%,rgba(0,0,0,.06));
+  -webkit-backdrop-filter:blur(20px) saturate(1.8);backdrop-filter:blur(20px) saturate(1.8);
+  border-bottom:1px solid rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 12px 32px -22px rgba(0,0,0,.6)}
+.x-nav a{transition:background .25s,color .25s,box-shadow .25s}
+.x-nav a:hover{background:rgba(255,255,255,.14);color:#F2F7E6;box-shadow:var(--gl-hi)}
+.x-nav a.on,.x-nav a[aria-current="page"]{background:var(--x-lime);background-image:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,0) 58%);color:#131210;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 -1px 0 rgba(0,0,0,.08),0 4px 14px -6px rgba(183,222,67,.7)}
+
+/* language pill, theme chip, menu button */
+.x-chip.lang-flags,.x-top .x-chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3);-webkit-backdrop-filter:var(--gl-blur);backdrop-filter:var(--gl-blur);box-shadow:var(--gl-hi)}
+.x-chip.lang-flags:hover,.x-top .x-chip:hover{background:rgba(255,255,255,.16)}
+.lang-flags .lf.on{background:rgba(242,247,230,.94);background-image:linear-gradient(180deg,#fff,rgba(255,255,255,0) 60%);box-shadow:inset 0 1px 0 #fff,0 2px 8px -3px rgba(0,0,0,.4)}
+.x-burger{background-image:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 58%);box-shadow:inset 0 1px 0 rgba(255,255,255,.75),inset 0 -1px 0 rgba(0,0,0,.1),0 4px 14px -6px rgba(0,0,0,.45)}
+
+/* ---------- menu drawer: a glass sheet over the page ---------- */
+.x-drawer{background-color:color-mix(in srgb,var(--x-forest) 82%,transparent);background-image:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,0) 40%);
+  -webkit-backdrop-filter:blur(26px) saturate(1.6);backdrop-filter:blur(26px) saturate(1.6);border-left:1px solid rgba(255,255,255,.2);box-shadow:inset 1px 0 0 rgba(255,255,255,.18),-30px 0 60px -30px rgba(0,0,0,.6)}
+.x-close,.x-lang button{background:rgba(255,255,255,.08);-webkit-backdrop-filter:var(--gl-blur);backdrop-filter:var(--gl-blur);box-shadow:var(--gl-hi)}
+.x-sel a{-webkit-backdrop-filter:var(--gl-blur);backdrop-filter:var(--gl-blur)}
+
+/* ---------- floating controls over photos and video ---------- */
+.reel-sound,.vlike,.plb button,.strip-arrow,.shelf-arrow,.vplay{
+  background:var(--gl-dark);border:1px solid var(--gl-dark-bd);color:#fff;
+  -webkit-backdrop-filter:var(--gl-blur);backdrop-filter:var(--gl-blur);
+  box-shadow:var(--gl-hi),0 10px 26px -12px rgba(0,0,0,.55)}
+.vplay{background:rgba(255,255,255,.28);color:#fff}
+.reel-sound:hover,.vlike:hover,.plb button:hover,.strip-arrow:hover,.shelf-arrow:hover{background:rgba(255,255,255,.24)}
+.vbtn:hover .vplay{background:var(--lime);color:#131210;border-color:var(--lime)}
+.play-btn{background-image:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 58%);box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 10px 26px -12px rgba(0,0,0,.55)}
+.mp-tag{background:var(--gl-light);border:1px solid var(--gl-light-bd);-webkit-backdrop-filter:var(--gl-blur);backdrop-filter:var(--gl-blur);box-shadow:var(--gl-hi)}
+
+/* ---------- pills on the dark feed band and in the footer ---------- */
+.fbtn{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.22);-webkit-backdrop-filter:var(--gl-blur);backdrop-filter:var(--gl-blur);box-shadow:var(--gl-hi);transition:background .2s,border-color .2s}
+.fbtn:hover{background:rgba(255,255,255,.14)}
+.x-pill{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3);-webkit-backdrop-filter:var(--gl-blur);backdrop-filter:var(--gl-blur);box-shadow:var(--gl-hi)}
+
+/* ---------- resume page section links ---------- */
+.cv-toc a{background:var(--gl-light);border-color:var(--gl-light-bd);-webkit-backdrop-filter:var(--gl-blur);backdrop-filter:var(--gl-blur);box-shadow:var(--gl-hi),0 4px 14px -10px rgba(0,0,0,.35)}
+
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .x-top{background-color:var(--x-forest)}
+  .x-drawer{background-color:var(--x-forest)}
+  .reel-sound,.vlike,.plb button,.strip-arrow,.shelf-arrow{background:rgba(18,24,14,.72)}
+}
+@media (prefers-reduced-transparency:reduce){
+  .x-top,.x-drawer{background-color:var(--x-forest)}
+}
