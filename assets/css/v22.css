@@ -53,3 +53,14 @@ img.fit{object-fit:contain!important;object-position:50% 50%!important}
   .vbtn .vchip{max-width:calc(100% - 64px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .vbtn::after{background:linear-gradient(to top,rgba(0,0,0,.9) 8%,rgba(0,0,0,.55) 42%,transparent 66%)}
 }
+
+/* key figures open their case */
+a.num{text-decoration:none;cursor:pointer;transition:filter .25s}
+a.num b{transition:transform .35s cubic-bezier(.2,.7,.2,1);transform-origin:0 100%}
+a.num:hover b,a.num:focus-visible b{transform:translateY(-4px)}
+a.num:hover{filter:brightness(1.04)}
+a.num:focus-visible{outline:3px solid var(--ink);outline-offset:-6px}
+.num-go{position:relative;z-index:1;margin-top:auto;padding-top:6px;font:600 12px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;opacity:.7;transition:opacity .25s}
+.num-go::after{content:"→";display:inline-block;margin-left:.45em;transition:transform .25s}
+a.num:hover .num-go,a.num:focus-visible .num-go{opacity:1}
+a.num:hover .num-go::after,a.num:focus-visible .num-go::after{transform:translateX(5px)}
